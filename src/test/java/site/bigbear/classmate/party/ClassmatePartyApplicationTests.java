@@ -1,4 +1,4 @@
-package site.bigbear.classmate_party;
+package site.bigbear.classmate.party;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
