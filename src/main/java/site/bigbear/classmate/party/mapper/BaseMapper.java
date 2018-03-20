@@ -10,4 +10,6 @@ import site.bigbear.classmate.party.pojo.BaseEntity;
  * @param <T>
  */
 public interface BaseMapper<T extends BaseEntity> {
+    @Insert    (value = "INSERT INTO")
+    public int insert(T entity);
 }

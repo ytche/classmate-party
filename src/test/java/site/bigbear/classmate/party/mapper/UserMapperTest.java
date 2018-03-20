@@ -2,8 +2,8 @@ package site.bigbear.classmate.party.mapper;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import site.bigbear.classmate.party.pojo.User;
 import site.bigbear.classmate.party.ClassmatePartyApplicationTests;
+import site.bigbear.classmate.party.pojo.User;
 
 import java.util.Date;
 

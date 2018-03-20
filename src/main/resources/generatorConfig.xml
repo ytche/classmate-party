@@ -6,7 +6,6 @@
 <generatorConfiguration>
     <!-- 配置文件路径 -->
     <properties resource="application.properties"/>
-
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
@@ -36,6 +35,8 @@
             <property name="trimStrings" value="false"/>
             <property name="javaExampleTargetPackage" value="${mybatis.type-aliases-package}"/>
             <property name="javaExampleTargetProject" value="${target.project}"/>
+            <property name="rootClass"
+                      value="site.bigbear.classmate.party.pojo.BaseEntity"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="${xml.package}"
@@ -44,13 +45,20 @@
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="${mapper.package}"
+                             targetPackage="${mapper.Mapper}"
                              targetProject="${target.project}">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
         <table tableName="base_user"
                domainObjectName="User"
+               enableCountByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               enableUpdateByExample="false">
+            <generatedKey column="id" sqlStatement="Mysql" type="post" identity="true"/>
+        </table>
+        <table tableName="base_user_info"
+               domainObjectName="UserInfo"
                enableCountByExample="true"
                enableDeleteByExample="false" enableSelectByExample="true"
                enableUpdateByExample="false">

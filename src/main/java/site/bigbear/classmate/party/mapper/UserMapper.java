@@ -1,10 +1,12 @@
 package site.bigbear.classmate.party.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import site.bigbear.classmate.party.pojo.User;
 import site.bigbear.classmate.party.pojo.UserExample;
 
-public interface UserMapper {
+public interface UserMapper{
     long countByExample(UserExample example);
 
     int deleteByPrimaryKey(Long id);
