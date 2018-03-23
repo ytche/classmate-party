@@ -12,7 +12,7 @@ import site.bigbear.classmate.party.pojo.BaseEntity;
 public  class BaseController<T extends BaseEntity>{
 
     /**
-     * 发挥前台信息
+     * 返回前台信息
      * @param success
      * @param data
      * @param info
@@ -29,5 +29,9 @@ public  class BaseController<T extends BaseEntity>{
     }
     public Message sendFail(String info,int errorCode){
         return  this.sendMessage(false,null,info,errorCode);
+    }
+    public Message sendMessage(boolean success){
+        return success?this.sendSuccess(null):this.sendFail("服务器异常",
+                Constant.ERROR_CODE_DEFALUT);
     }
 }

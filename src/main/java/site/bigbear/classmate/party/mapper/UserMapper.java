@@ -1,25 +1,21 @@
 package site.bigbear.classmate.party.mapper;
 
+import site.bigbear.classmate.party.pojo.User;
+
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import site.bigbear.classmate.party.pojo.User;
-import site.bigbear.classmate.party.pojo.UserExample;
-
-public interface UserMapper{
-    long countByExample(UserExample example);
-
+public interface UserMapper {
     int deleteByPrimaryKey(Long id);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    List<User> selectByExample(UserExample example);
-
     User selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectAll();
 }

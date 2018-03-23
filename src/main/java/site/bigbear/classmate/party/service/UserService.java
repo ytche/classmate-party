@@ -20,4 +20,6 @@ public interface UserService extends  BaseService {
     User findById(Long id);
 
     Object save(User user);
+
+    boolean delete(Long id);
 }

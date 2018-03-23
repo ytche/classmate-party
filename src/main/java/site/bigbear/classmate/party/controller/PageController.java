@@ -1,6 +1,7 @@
 package site.bigbear.classmate.party.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 页面跳转controller
@@ -8,4 +9,9 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class PageController {
+
+    @RequestMapping("/jsp/home")
+    public String home() {
+        return "home";
+    }
 }

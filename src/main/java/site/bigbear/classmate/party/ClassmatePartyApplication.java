@@ -1,5 +1,6 @@
 package site.bigbear.classmate.party;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded
@@ -12,6 +13,7 @@ import org.springframework.boot.context.embedded
  * @author cheyantao
  */
 @SpringBootApplication
+@MapperScan("site.bigbear.classmate.party.mapper")
 public class ClassmatePartyApplication {
 
 	public static void main(String[] args) {

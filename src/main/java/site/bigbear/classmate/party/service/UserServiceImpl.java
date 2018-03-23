@@ -1,9 +1,6 @@
 package site.bigbear.classmate.party.service;
-import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import site.bigbear.classmate.party.mapper.BaseMapper;
 import site.bigbear.classmate.party.mapper.UserMapper;
 import site.bigbear.classmate.party.pojo.User;
 
@@ -19,7 +16,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService{
     UserMapper userMapper;
     @Override
     public List<User> findAll() {
-        return  this.userMapper.selectByExample(null);
+        return  this.userMapper.selectAll();
     }
 
     @Override
@@ -34,5 +31,10 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService{
         }else {
             return userMapper.updateByPrimaryKey(user);
         }
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        return this.userMapper.deleteByPrimaryKey(id)>0;
     }
 }
