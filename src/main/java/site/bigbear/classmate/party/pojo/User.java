@@ -2,6 +2,9 @@ package site.bigbear.classmate.party.pojo;
 
 import java.util.Date;
 
+/**
+ *  用户实体
+ */
 public class User extends BaseEntity {
     private Long id;
 
@@ -16,6 +19,8 @@ public class User extends BaseEntity {
     private Long createUserId;
 
     private Date lastUpdate;
+
+    private UserInfo info;
 
     public Long getId() {
         return id;
@@ -71,6 +76,22 @@ public class User extends BaseEntity {
 
     public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public Boolean getActive() {
+        return this.isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public UserInfo getInfo() {
+        return this.info;
+    }
+
+    public void setInfo(UserInfo info) {
+        this.info = info;
     }
 
     @Override

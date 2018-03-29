@@ -27,6 +27,10 @@
     from base_user_info
     where id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="selectByUserId" parameterType="java.lang.Long"  resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM base_user_info WHERE  user_id= #{userId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from base_user_info
     where id = #{id,jdbcType=BIGINT}

@@ -5,6 +5,7 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import site.bigbear.classmate.party.common.Constant;
 import site.bigbear.classmate.party.common.Message;
 import site.bigbear.classmate.party.pojo.BaseEntity;
+import site.bigbear.classmate.party.service.BaseService;
 
 /**
  * @author cheyantao
