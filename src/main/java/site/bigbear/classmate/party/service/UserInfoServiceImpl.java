@@ -25,7 +25,6 @@ public class UserInfoServiceImpl extends BaseServiceImpl implements UserInfoServ
             return this.mapper.updateByPrimaryKey(info)>0;
         }
     }
-
     @Override
     public boolean delete(Long id) {
         return this.mapper.deleteByPrimaryKey(id)>0;

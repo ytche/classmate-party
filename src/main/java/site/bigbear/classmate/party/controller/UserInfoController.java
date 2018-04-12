@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import site.bigbear.classmate.party.common.Message;
-import site.bigbear.classmate.party.pojo.User;
 import site.bigbear.classmate.party.pojo.UserInfo;
 import site.bigbear.classmate.party.service.UserInfoService;
 

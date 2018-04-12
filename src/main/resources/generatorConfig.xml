@@ -50,20 +50,12 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="base_user"
-               domainObjectName="User"
+        <table tableName="base_activity"
+               domainObjectName="Activity"
                enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
             <generatedKey column="id" sqlStatement="Mysql" type="post" identity="true"/>
         </table>
-        <table tableName="base_user_info"
-               domainObjectName="UserInfo"
-               enableCountByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               enableUpdateByExample="false">
-            <generatedKey column="id" sqlStatement="Mysql" type="post" identity="true"/>
-        </table>
-
     </context>
 </generatorConfiguration>
