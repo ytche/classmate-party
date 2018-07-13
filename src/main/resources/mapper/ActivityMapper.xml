@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.bigbear.classmate.party.mapper.ActivityMapper">
+  <resultMap id="BaseResultMap" type="site.bigbear.classmate.party.pojo.Activity">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="held_date" jdbcType="TIMESTAMP" property="heldDate" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="submit_time" jdbcType="TIMESTAMP" property="submitTime" />
+    <result column="is_count" jdbcType="BIT" property="isCount" />
+    <result column="off_time" jdbcType="TIMESTAMP" property="offTime" />
+    <result column="is_held" jdbcType="BIT" property="isHeld" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="last_update" jdbcType="TIMESTAMP" property="lastUpdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, held_date, description, submit_time, is_count, off_time, is_held, create_time, 
+    create_user_id, last_update
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from base_activity
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from base_activity
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="site.bigbear.classmate.party.pojo.Activity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into base_activity (name, held_date, description, 
+      submit_time, is_count, off_time, 
+      is_held, create_time, create_user_id, 
+      last_update)
+    values (#{name,jdbcType=VARCHAR}, #{heldDate,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR}, 
+      #{submitTime,jdbcType=TIMESTAMP}, #{isCount,jdbcType=BIT}, #{offTime,jdbcType=TIMESTAMP}, 
+      #{isHeld,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=BIGINT}, 
+      #{lastUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="site.bigbear.classmate.party.pojo.Activity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into base_activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        name,
+      </if>
+      <if test="heldDate != null">
+        held_date,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="submitTime != null">
+        submit_time,
+      </if>
+      <if test="isCount != null">
+        is_count,
+      </if>
+      <if test="offTime != null">
+        off_time,
+      </if>
+      <if test="isHeld != null">
+        is_held,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="lastUpdate != null">
+        last_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="heldDate != null">
+        #{heldDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCount != null">
+        #{isCount,jdbcType=BIT},
+      </if>
+      <if test="offTime != null">
+        #{offTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isHeld != null">
+        #{isHeld,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdate != null">
+        #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="site.bigbear.classmate.party.pojo.Activity">
+    update base_activity
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="heldDate != null">
+        held_date = #{heldDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCount != null">
+        is_count = #{isCount,jdbcType=BIT},
+      </if>
+      <if test="offTime != null">
+        off_time = #{offTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isHeld != null">
+        is_held = #{isHeld,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdate != null">
+        last_update = #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="site.bigbear.classmate.party.pojo.Activity">
+    update base_activity
+    set name = #{name,jdbcType=VARCHAR},
+      held_date = #{heldDate,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR},
+      submit_time = #{submitTime,jdbcType=TIMESTAMP},
+      is_count = #{isCount,jdbcType=BIT},
+      off_time = #{offTime,jdbcType=TIMESTAMP},
+      is_held = #{isHeld,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=BIGINT},
+      last_update = #{lastUpdate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

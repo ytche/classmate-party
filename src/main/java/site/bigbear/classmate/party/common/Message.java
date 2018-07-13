@@ -1,6 +1,5 @@
 package site.bigbear.classmate.party.common;
 
-import com.sun.net.httpserver.Authenticator;
 
 /**
  * 前后台交互信息基础格式
